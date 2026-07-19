@@ -8,7 +8,7 @@ import Testimonials from "./components/Testimonials";
 import About from "./components/About";
 import ProductCard from "./components/ProductCard";
 import ProductModal from "./components/ProductModal";
-import Footer from "./components/Footer";
+import NewFooter from "./components/NewFooter";
 import WhatsAppButton from "./components/WhatsAppButton";
 import products from "./data/products";
 
@@ -197,7 +197,7 @@ function App() {
 
       <About />
 
-      <Footer />
+      <NewFooter />
 
       <WhatsAppButton />
 
