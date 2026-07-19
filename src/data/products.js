@@ -4,7 +4,7 @@ const products = [
     name: "Blue Cotton Kurti",
     category: "Kurti",
     price: 799,
-    image: "",
+    image: "https://res.cloudinary.com/nnueluyy/image/upload/v1784446603/img1_twgi6w.jpg",
     description:
       "Soft cotton kurti with elegant embroidery. Perfect for casual outings and office wear.",
     fabric: "100% Cotton",
