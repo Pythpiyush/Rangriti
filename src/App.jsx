@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import ShopCategory from "./components/ShopCategory";
 import FeaturedProducts from "./components/FeaturedProducts";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Testimonials from "./components/Testimonials";
@@ -16,6 +17,19 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+
+    const section = document.getElementById("products");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   // Featured products appear only in the Featured section
   const catalogProducts = products.filter(
@@ -51,87 +65,102 @@ function App() {
     });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
+    <div className="min-h-screen bg-[#FFF8F2]">
       <Navbar />
 
       <Hero />
+
+      <ShopCategory
+        onCategorySelect={handleCategorySelect}
+      />
 
       <FeaturedProducts
         products={products}
         onProductClick={setSelectedProduct}
       />
 
-      <WhyChooseUs />
-
-      <Testimonials />
-
-      <About />
-
       <section
         id="products"
-        className="max-w-7xl mx-auto py-16 px-6"
+        className="max-w-7xl mx-auto py-24 px-6"
       >
-        <div className="text-center mb-12">
-          <p className="uppercase tracking-[0.3em] text-pink-700 text-sm font-semibold">
+        <div className="text-center mb-14">
+
+          <p className="uppercase tracking-[0.4em] text-[#8B1E3F] text-sm font-semibold">
             Our Collection
           </p>
 
-          <h2 className="mt-3 text-5xl text-gray-900">
-            Browse More Products
+          <h2 className="mt-5 text-5xl font-bold text-[#2E2E2E]">
+            Explore Every Style
           </h2>
 
-          <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            Discover elegant pieces for every occasion.
+          <div className="w-24 h-1 bg-[#D4AF37] rounded-full mx-auto mt-6"></div>
+
+          <p className="mt-8 text-lg text-gray-600 max-w-2xl mx-auto leading-8">
+            Browse our complete collection and discover elegant
+            designs crafted with comfort, quality, and timeless
+            fashion.
           </p>
+
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-8">
-          <input
-            type="text"
-            placeholder="Search by product name or ID..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-full border border-gray-300 px-6 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500"
-          />
+        {/* Search & Sort */}
 
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="rounded-full border border-gray-300 px-6 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500"
-          >
-            <option value="default">Sort By</option>
-            <option value="priceLow">Price: Low to High</option>
-            <option value="priceHigh">Price: High to Low</option>
-            <option value="name">Name (A-Z)</option>
-          </select>
-        </div>
+        <div className="bg-white border border-[#F1E4D6] rounded-3xl shadow-sm p-6 max-w-5xl mx-auto mb-10">
 
-        <div className="flex justify-center gap-3 mb-12 flex-wrap">
-          {["All", "Kurti", "Saree", "Bedsheet"].map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full border transition-all duration-300 font-medium ${
-                selectedCategory === category
-                  ? "bg-pink-700 text-white border-pink-700 shadow-lg"
-                  : "bg-white border-gray-200 text-gray-700 hover:border-pink-500 hover:text-pink-700"
-              }`}
+          <div className="grid md:grid-cols-2 gap-4">
+
+            <input
+              type="text"
+              placeholder="Search by product name or ID..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full rounded-2xl border border-[#E5D8C8] px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[#8B1E3F]"
+            />
+
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="rounded-2xl border border-[#E5D8C8] px-6 py-4 focus:outline-none focus:ring-2 focus:ring-[#8B1E3F]"
             >
-              {category}
-            </button>
-          ))}
+              <option value="default">Sort By</option>
+              <option value="priceLow">Price: Low to High</option>
+              <option value="priceHigh">Price: High to Low</option>
+              <option value="name">Name (A-Z)</option>
+            </select>
+
+          </div>
+
+          <div className="flex justify-center gap-3 mt-8 flex-wrap">
+
+            {["All", "Kurti", "Saree", "Bedsheet"].map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-[#8B1E3F] text-white shadow-lg"
+                    : "bg-[#FFF8F2] border border-[#E5D8C8] text-gray-700 hover:border-[#8B1E3F] hover:text-[#8B1E3F]"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+
+          </div>
+
         </div>
 
-        <p className="text-center text-gray-500 mb-8">
+        <p className="text-center text-gray-600 mb-10 text-lg">
           Showing{" "}
-          <span className="font-semibold">
+          <span className="font-bold text-[#8B1E3F]">
             {filteredProducts.length}
           </span>{" "}
           products
         </p>
 
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
@@ -141,21 +170,32 @@ function App() {
                 <ProductCard product={product} />
               </div>
             ))}
+
           </div>
         ) : (
-          <div className="text-center py-20">
-            <div className="text-6xl mb-4">🛍️</div>
+          <div className="bg-white rounded-3xl border border-[#F1E4D6] shadow-sm py-20 text-center">
 
-            <h3 className="text-2xl font-semibold text-gray-800">
+            <div className="text-7xl">
+              🛍️
+            </div>
+
+            <h3 className="mt-6 text-3xl font-bold text-[#2E2E2E]">
               No Products Found
             </h3>
 
-            <p className="text-gray-500 mt-2">
-              Try a different search or choose another category.
+            <p className="mt-3 text-gray-600">
+              Try another category or search for a different product.
             </p>
+
           </div>
         )}
       </section>
+
+      <WhyChooseUs />
+
+      <Testimonials />
+
+      <About />
 
       <Footer />
 
