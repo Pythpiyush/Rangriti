@@ -12,10 +12,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
 
           {/* Brand */}
-
           <div>
-
-            {/* Logo Placeholder */}
 
             <div className="w-20 h-20 rounded-2xl border-2 border-dashed border-[#D4AF37] flex items-center justify-center text-[#D4AF37] text-sm font-semibold">
               LOGO
@@ -30,14 +27,13 @@ function Footer() {
             </p>
 
             <p className="mt-6 text-gray-300 leading-8">
-              Discover thoughtfully curated fashion that blends
-              elegance, comfort, and timeless style for every occasion.
+              Discover thoughtfully curated fashion that blends elegance,
+              comfort, and timeless style for every occasion.
             </p>
 
           </div>
 
           {/* Quick Links */}
-
           <div>
 
             <h3 className="text-xl font-semibold text-[#D4AF37]">
@@ -47,37 +43,25 @@ function Footer() {
             <ul className="mt-6 space-y-4">
 
               <li>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-white transition"
-                >
+                <a href="#" className="text-gray-300 hover:text-white">
                   Home
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#featured"
-                  className="text-gray-300 hover:text-white transition"
-                >
+                <a href="#featured" className="text-gray-300 hover:text-white">
                   Featured Collection
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#products"
-                  className="text-gray-300 hover:text-white transition"
-                >
+                <a href="#products" className="text-gray-300 hover:text-white">
                   Our Collection
                 </a>
               </li>
 
               <li>
-                <a
-                  href="#about"
-                  className="text-gray-300 hover:text-white transition"
-                >
+                <a href="#about" className="text-gray-300 hover:text-white">
                   About Rangriti
                 </a>
               </li>
@@ -87,7 +71,6 @@ function Footer() {
           </div>
 
           {/* Contact */}
-
           <div>
 
             <h3 className="text-xl font-semibold text-[#D4AF37]">
@@ -100,20 +83,18 @@ function Footer() {
                 href="https://wa.me/917042038422"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-3 text-gray-300 hover:text-white transition"
+                className="text-gray-300 hover:text-white"
               >
                 💬 WhatsApp
               </a>
 
-              <div className="flex items-center gap-3 text-gray-300">
-                📍 Store Location
-                <span className="text-sm">(Coming Soon)</span>
-              </div>
+              <p className="text-gray-300">
+                📍 Store Location (Coming Soon)
+              </p>
 
-              <div className="flex items-center gap-3 text-gray-300">
-                📸 Instagram
-                <span className="text-sm">(Coming Soon)</span>
-              </div>
+              <p className="text-gray-300">
+                📸 Instagram (Coming Soon)
+              </p>
 
             </div>
 
@@ -121,21 +102,15 @@ function Footer() {
 
         </div>
 
-        {/* Divider */}
+        <div className="border-t border-white/10 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
 
-        <div className="border-t border-white/10 mt-14 pt-8">
+          <p className="text-gray-400 text-sm">
+            © 2026 Rangriti. All Rights Reserved.
+          </p>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-
-            <p className="text-gray-400 text-sm">
-              © 2026 Rangriti. All Rights Reserved.
-            </p>
-
-            <p className="text-gray-400 text-sm">
-              Crafted with ❤ for timeless fashion.
-            </p>
-
-          </div>
+          <p className="text-gray-400 text-sm">
+            Crafted with ❤ for timeless fashion.
+          </p>
 
         </div>
 
