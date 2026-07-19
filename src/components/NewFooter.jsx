@@ -8,7 +8,7 @@ function NewFooter() {
         <h2 className="text-2xl font-bold">Maa's Boutique</h2>
 
         <p className="mt-3">
-          📍 Visit us at our home boutique
+          📍 Visit us at our home boutiquess
         </p>
 
         <p className="mt-2">
