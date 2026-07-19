@@ -8,31 +8,53 @@ function FeaturedProducts({ products, onProductClick }) {
   if (featuredProducts.length === 0) return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
-      <div className="text-center mb-10">
-        <p className="uppercase tracking-[0.3em] text-pink-700 text-sm font-semibold">
-          Featured Collection
-        </p>
+    <section
+      id="featured"
+      className="relative py-24 bg-[#FFF8F2] overflow-hidden"
+    >
+      {/* Background Decorations */}
+      <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-[#F7EBDD] blur-3xl opacity-70"></div>
 
-        <h2 className="mt-3 text-5xl text-gray-900">
-          Our Best Picks
-        </h2>
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-[#F2DDC2] blur-3xl opacity-60"></div>
 
-        <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-          Discover our handpicked collection loved by our customers.
-        </p>
-      </div>
+      <div className="relative max-w-7xl mx-auto px-6">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            className="cursor-pointer"
-            onClick={() => onProductClick(product)}
-          >
-            <ProductCard product={product} />
-          </div>
-        ))}
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto">
+
+          <p className="uppercase tracking-[0.4em] text-[#8B1E3F] text-sm font-semibold">
+            Featured Collection
+          </p>
+
+          <h2 className="mt-5 text-4xl lg:text-5xl font-bold text-[#2E2E2E]">
+            Our Signature Picks
+          </h2>
+
+          <div className="w-24 h-1 bg-[#D4AF37] rounded-full mx-auto mt-6"></div>
+
+          <p className="mt-8 text-lg text-gray-600 leading-8">
+            Carefully selected designs that reflect elegance, comfort,
+            and timeless style. Discover the pieces our customers love
+            the most.
+          </p>
+
+        </div>
+
+        {/* Product Grid */}
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          {featuredProducts.map((product) => (
+            <div
+              key={product.id}
+              onClick={() => onProductClick(product)}
+              className="cursor-pointer"
+            >
+              <ProductCard product={product} />
+            </div>
+          ))}
+
+        </div>
+
       </div>
     </section>
   );
